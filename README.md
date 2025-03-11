@@ -132,6 +132,7 @@ The expressions written above for the calculated columns and measures can not be
 On the Report view, a Strategic Performance & Trends Dashboard was created consisting of three pages.   
 
 ### Features of the Report
+
 - **Navigation panes** added to enhance user experience.
 - **Cards Visuals** used to show Total Loyal Customers, Total Revenue, Total Hotel visitors, Cancellation Rate, No. of Hotel Companies and No. of Agents
 - **KPIs**: Compares the Total Revenue per Year with $500bn target and Loyal Customers per Year with target of 1,000
@@ -142,26 +143,22 @@ On the Report view, a Strategic Performance & Trends Dashboard was created consi
 - **Donut chart**: Shows the Total Loyal Customers classified by each Visitor Type
 - **Pie charts**: Measures the Total Stay Length by Visitor Type. Piechart 2 makes comparison between the stay length during Week Nights vs Weekend Nights
 - **Area chart**: Indicates the Total Revenue Made by Each Company
-   - Filter
-   - Text box
+- **Filter**: Applied to Page 1 of the report. Filters the information on the page by the Agent ID
+- **Text box**: Used to create the Dashboard Title and also the Assumptions made on Page 3 of the report.
 
-Here are the reports:
-
-Inventory Page
-
-![]()
-
-Product Page
+Find below screenshots of the report:  
+Page 1
 
 ![]()
 
-Sales Page
+Page 2
 
 ![]()
 
-Insight Page
+Page 3
 
 ![]()
+
 
 ---
 ## Insights and Recommendation
