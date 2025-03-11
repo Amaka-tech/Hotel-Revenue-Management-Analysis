@@ -24,13 +24,14 @@ The objectives of the analysis are:
 
 1. Imported Excel workbook into Power Query Editor using the "Get Data" feature
 2. Using Power Query Editor to clean and transform data as follows:
+   - Promote headers
    - Append and Merge datasets from three separate tables to form one table
    - Create new columns, delete columns, reorder columns, merge columns
    - Change data type for each column to correspond with the values
    - Replace "null" values
    - Filter rows
    - Use Column quality, Column distribution and/or Column profile to verify that data is 100% clean.
-   - Import cleaned data from Power Query into PowerBI
+   - Import cleaned data from Power Query Editor into PowerBI desktop
 3. Create measures in PowerBI to calculate hotel cancellation rate, total revenue, total loyal customers, etc for Data visualization.
 4. Create key performance indicators (KPIs) and other business calculations,
 5. Carry out DAX calculations for solving statistical measures and other mathematical formulas.
@@ -44,7 +45,9 @@ The objectives of the analysis are:
 ---
 ## Data Source:
 
-The data used for this work is obtained from the AdventureWorks 2019 database 2019. I studied the Schema, Objects related to the Schema, data dictionary and found the right tables for the analysis.
+The datasets used for this project was from a Microsoft Excel workbook provided by the Tech Instistute "DAHEL Techies" where I completed my internship. I studied the datasets alongside the data dictionary and figured out the approach to take for the analysis. 
+
+Click [here](Dataset.xlsx) for Datasets. Also refer to [data dictionary](Dataset_dictionary.xlsx)
 
 ---
 ## Data Transformation:
