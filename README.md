@@ -146,19 +146,22 @@ On the Report view, a Strategic Performance & Trends Dashboard was created consi
 - **Filter**: Applied to Page 1 of the report. Filters the information on the page by the Agent ID
 - **Text box**: Used to create the Dashboard Title and also the Assumptions made on Page 3 of the report.
 
+---
+## Key Metrics and Findings
+
+
 Find below screenshots of the report:  
-Page 1
+**<ins>Page 1</ins>**
 
-![]()
+![](Page_1_Dashboard.png)
 
-Page 2
+**<ins>Page 2</ins>**
 
-![]()
+![](Page_2_Dashboard.png)
 
-Page 3
+**<ins>Page 3</ins>**
 
-![]()
-
+![](Page_3_Dashboard.png)
 
 ---
 ## Insights and Recommendation
@@ -172,6 +175,8 @@ On time Production is 48%
 93% of the entire products needs to be replaced for sales.
 
 ---
+## Conclusion
+
 
 
 
