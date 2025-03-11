@@ -20,10 +20,17 @@ The objectives of the analysis are:
 - use the insights gained to make recommendations for optimization.
 
 ---
-## Skills and Concepts demonstrated:
+## Data Source:
+
+The datasets used for this project was from a Microsoft Excel workbook provided by the Tech Instistute "DAHEL Techies" where I completed my internship. I studied the datasets alongside the data dictionary and figured out the approach to take for the analysis. 
+
+Click [here](Dataset.xlsx) for Datasets. Also refer to [data dictionary](Dataset_dictionary.xlsx)
+
+---
+## Data Transformation:
 
 1. Imported Excel workbook into Power Query Editor using the "Get Data" feature
-2. Using Power Query Editor to clean and transform data as follows:
+2. Used Power Query Editor to clean and transform data as follows:
    - Promote headers
    - Append and Merge datasets from three separate tables to form one table
    - Create new columns, delete columns, reorder columns, merge columns
@@ -41,33 +48,8 @@ The objectives of the analysis are:
    - Cards, Clustered column chart, KPI, Slicer, Line chart, Donut chart, pie chart, Area chart, clustered bar chart
    - Filter
    - Text box
-   
----
-## Data Source:
 
-The datasets used for this project was from a Microsoft Excel workbook provided by the Tech Instistute "DAHEL Techies" where I completed my internship. I studied the datasets alongside the data dictionary and figured out the approach to take for the analysis. 
-
-Click [here](Dataset.xlsx) for Datasets. Also refer to [data dictionary](Dataset_dictionary.xlsx)
-
----
-## Data Transformation:
-
-Several structured queries were written to get the right tables and then saved as views in the Database on SQL Management Studio.
-
-![]()
-
-Then I imported the views into my PowerBI desktop app
-
-![]()
-
-Then I selected the right views I had created in SQL. From here, we know the right tables from AdventureWorks to use.
-
-![]()
-
-I transformed the data in Power Query, checked for Colum quality, consistent or appropriate data types
-I began writing several Dax and creating measures and calculated columns to get the right metrics for the Inventory analysis.
-I also created the calendar table
-The queries I wrote on SQL are compiled and also uploaded here in this repository as "Inventory Management Scripts"
+Please Note: I have attached the file for my completed [PowerBI project](Power BI Project - Okonkwo Chiamaka I..pbix) for reference
 
 ---
 ## Data Modelling:
