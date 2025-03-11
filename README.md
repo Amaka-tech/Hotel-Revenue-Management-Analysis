@@ -30,6 +30,9 @@ Click [here](Dataset.xlsx) for Datasets. Also refer to [data dictionary](Dataset
 ## Data Transformation:
 
 1. Imported Excel workbook into Power Query Editor using the "Get Data" feature
+
+![](Import_to_Power_Query_Editor.png)
+
 2. Used Power Query Editor to clean and transform data as follows:
    - Promote headers
    - Append and Merge datasets from three separate tables to form one table
@@ -42,6 +45,11 @@ Click [here](Dataset.xlsx) for Datasets. Also refer to [data dictionary](Dataset
 3. Create measures in PowerBI to calculate hotel cancellation rate, total revenue, total loyal customers, etc for Data visualization.
 4. Create key performance indicators (KPIs) and other business calculations,
 5. Carry out DAX calculations for solving statistical measures and other mathematical formulas.
+
+![](Total_Revenue-DAX_Calculation.png)
+
+![](Number_of_Agents-DAX.png)
+   
 6. Data Modelling
 7. Data Visualization using various tools:
    - Navigation panes
@@ -49,7 +57,7 @@ Click [here](Dataset.xlsx) for Datasets. Also refer to [data dictionary](Dataset
    - Filter
    - Text box
 
-*Please Note: I have attached the file for my completed [PowerBI project](PowerBI_Project-Okonkwo-Chiamaka-I.pbix) for reference*
+*Please Note: I have attached the file for my completed [PowerBI project](PowerBI_Project-Okonkwo-Chiamaka-I.pbix) for reference as I could not include all screenshots of my work*
 
 ---
 ## Data Modelling:
@@ -58,44 +66,84 @@ Due to the simplicity of the schema, one to many relationships were automaticall
 
 One to Many Relationship between "Meal_cost" and "Hotel_revenue_data" tables
 
-![]()
+![](Relationship_1.png)
 
 One to Many Relationship between "Market_segment_discount" and "Hotel_revenue_data" tables
 
-![]()
-
-
+![](Relationship_2.png)
 
 ---
 ## Data Analysis:
 
-Several expressions and functions were made to arrive at the desired KPI or Metrics. I would list a few:
+Several expressions and functions were used to get the Metrics used used to gauge the performance of the agents and hotels. 
+They are:
 
-Cost of Goods Sold = SUM( 'Production Product_view'[StandardCost]) * SUM('Sales SalesOrderDetail_view'[OrderQty])
-CycleTime = SUM( 'Production WorkOrderRouting_view'[ActualResourceHrs] ) / SUM ( 'Production WorkOrder_view'[OrderQty])
-OnTimeProductionPercent = VAR Num_0 = COUNTROWS(FILTER('Production WorkOrderRouting_view', 'Production WorkOrderRouting_view'[OnTime] = 0)) VAR Num_1 = COUNTROWS(FILTER('Production WorkOrderRouting_view', 'Production WorkOrderRouting_view'[OnTime] = 1)) RETURN Num_1/(Num_0+Num_1)
-Stock Turn = [COGS]/[CostofInventory]
-ABC Ranking and XYZ analysis was also done.
-All the formlulas for the calculated columns and measures can not be well explained by just writing the expressions here as they are written on various tables. Kindly pardon me 😄
+To create a "Season" column: _if [Month] = "December" or [Month] = "January" or [Month] = "February" then "Winter"  
+else if [Month] = "March" or [Month] = "April" or [Month] = "May" then "Spring"  
+else if [Month] = "June" or [Month] = "July" or [Month] = "August" then "Summer"
+else "Autumn"_
+
+To create a "Visitor Type" column: _if [Adults] = 1 then "Single"  
+else if [Adults] = 2 and [Children] = 0 and [Babies] = 0 then "Couple"  
+else if [Adults] = 2 and ([Children] > 0 or [Babies] > 0) then "Family"  
+else null_
+
+To create a "Festive Days" column:
+_= Table.AddColumn(#"Reordered Columns2", "Festive Days", each if Date.Month([Arrival Date]) = 12   
+and Date.Day([Arrival Date]) = 25 then "Christmas"  
+else if Date.Month([Arrival Date]) = 1   
+and Date.Day([Arrival Date]) = 1 then "New Year"  
+else if Date.Month([Arrival Date]) = 2   
+and Date.Day([Arrival Date]) = 14 then "Valentine's Day"  
+else "Other")_
+
+Cancellation Rate *= DIVIDE([Total Cancellations], [Total Bookings], 0)*
+
+Hotel Companies *= CALCULATE(DISTINCTCOUNT('hotel_revenue_data(2018-2020)'[Company ID]),  
+    'hotel_revenue_data(2018-2020)'[Company ID] <> "NULL")*
+
+Number of Agents *= CALCULATE(DISTINCTCOUNT('hotel_revenue_data(2018-2020)'[Agent ID]),  
+    'hotel_revenue_data(2018-2020)'[Agent ID] <> "(Blank)")*
+
+Total AVG Daily Rate *= SUM('hotel_revenue_data(2018-2020)'[AVG Daily Rate])*
+
+Total Cancellations *= COUNTROWS(FILTER('hotel_revenue_data(2018-2020)', 'hotel_revenue_data(2018-2020)'[Cancellation Status] =  "Yes"))*
+
+Total Loyal Customers *= COUNTROWS(FILTER('hotel_revenue_data(2018-2020)', 'hotel_revenue_data(2018-2020)'[Repeated Guest Status] = "Yes"))*
+
+Total Revenue *= SUMX('hotel_revenue_data(2018-2020)', ('hotel_revenue_data(2018-2020)'[Week Night Stays] + 'hotel_revenue_data(2018-2020)'[Weekend Night Stays])) *  
+ SUMX('hotel_revenue_data(2018-2020)', 'hotel_revenue_data(2018-2020)'[AVG Daily Rate])*
+
+Total Stay Length *= SUM('hotel_revenue_data(2018-2020)'[Week Night Stays]) + SUM('hotel_revenue_data(2018-2020)'[Weekend Night Stays])*
+
+Total Visitors *= COUNTROWS(FILTER('hotel_revenue_data(2018-2020)', 'hotel_revenue_data(2018-2020)'[Visitor Type] <> "Others"))*
+    
+Weekend_night stays *= SUM('hotel_revenue_data(2018-2020)'[Weekend Night Stays])*
+
+Weeknight stays *= SUM('hotel_revenue_data(2018-2020)'[Week Night Stays])*
+
+
+All the formlulas for the Measures and measures can not be well explained by just writing the expressions here as they are written on various tables. 
+The expressions written above for the calculated columns and measures can not be well explained here. Please view PowerBI file attached [here](PowerBI_Project-Okonkwo-Chiamaka-I.pbix) on PowerBI desktop or online for better understanding.
 
 ---
 ## Data Visualization
 
-The dashboards are divided into two major sections:
-1.	Hotel Reservation Analysis
-2.	Revenue Analysis
+On the Report view, a Strategic Performance & Trends Dashboard was created consisting of three pages.   
 
-The report consists of 4 pages
-
-The Inventory Page
-The Product Page
-The Sales Page
-insight Page
-The report can be interacted with on the PowerBI service here:
-
----
-## Features of the Report
-The hamburger icon is a button that helps you to view the different pages. When you hover on it, you will see an effect and a click on it will open up a navigation pane that has buttons to direct you to the desired page you want to see. After which you can always return to the hamburger button when done. To get the insight, you click on the black info icon which will lead you to the insight page. The LinkedIn icon functions very well too as a click on it will take you to my LinkedIn profile if you wish to contact me. I think you should. so i know how you feel about this project 😀
+### Features of the Report
+- **Navigation panes** added to enhance user experience.
+- **Cards Visuals** used to show Total Loyal Customers, Total Revenue, Total Hotel visitors, Cancellation Rate, No. of Hotel Companies and No. of Agents
+- **KPIs**: Compares the Total Revenue per Year with $500bn target and Loyal Customers per Year with target of 1,000
+- **Clustered column charts** used to depict Total Visistors during Festive Days and Top Performing Agents by Revenue
+- **Clustered bar charts** showing Total Loyal Customers by each Agent and Total Hotel Stay Length by Year/Season
+- **Line charts** displays the Least Performing Agents by Total Hotel Cancellations and Total Cancellations by each Visitor Type
+- **Slicers**: to filter the results shown on the visuals by Year or Hotel Type
+- **Donut chart**: Shows the Total Loyal Customers classified by each Visitor Type
+- **Pie charts**: Measures the Total Stay Length by Visitor Type. Piechart 2 makes comparison between the stay length during Week Nights vs Weekend Nights
+- **Area chart**: Indicates the Total Revenue Made by Each Company
+   - Filter
+   - Text box
 
 Here are the reports:
 
@@ -116,7 +164,7 @@ Insight Page
 ![]()
 
 ---
-## Analysis
+## Insights and Recommendation
 
 The Company has 14 location for production/storage
 There are 4 main categories of products (Bikes, Accessories, Clothing and Components)
@@ -127,7 +175,7 @@ On time Production is 48%
 93% of the entire products needs to be replaced for sales.
 
 ---
-## Insights and Recommendation
+
 
 
 
