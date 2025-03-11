@@ -49,14 +49,22 @@ Click [here](Dataset.xlsx) for Datasets. Also refer to [data dictionary](Dataset
    - Filter
    - Text box
 
-Please Note: I have attached the file for my completed [PowerBI project](Power BI Project - Okonkwo Chiamaka I..pbix) for reference
+*Please Note: I have attached the file for my completed [PowerBI project](PowerBI_Project-Okonkwo-Chiamaka-I.pbix) for reference*
 
 ---
 ## Data Modelling:
 
-The intelligence in PowerBI makes it such that tables are automatically joined by creating relationships with them. However, as someone who understands the dataset and wants to get specific insights and information. I had to create other relationships and measures to enable me. so I did another model. I created 7 dimension tables and 2 fact tables as I hoped for a Star Schema.
+Due to the simplicity of the schema, one to many relationships were automatically created by PowerBI to produce a simplified data model which was found to be accurate upon inspection. The data model shows relationship between the tables in the schema which can be seen below.
+
+One to Many Relationship between "Meal_cost" and "Hotel_revenue_data" tables
 
 ![]()
+
+One to Many Relationship between "Market_segment_discount" and "Hotel_revenue_data" tables
+
+![]()
+
+
 
 ---
 ## Data Analysis:
