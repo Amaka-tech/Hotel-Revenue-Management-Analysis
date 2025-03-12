@@ -36,7 +36,11 @@ Click [here](Dataset.xlsx) for Datasets. Also refer to [data dictionary](Dataset
 2. Used Power Query Editor to clean and transform data as follows:
    - Promote headers
    - Append and Merge datasets from three separate tables to form one table
-   - Create new columns, delete columns, reorder columns, merge columns
+   - Create custom calculated columns
+
+![]()
+
+   - Delete columns, reorder columns, merge columns
    - Change data type for each column to correspond with the values
    - Replace "null" values
    - Filter rows
@@ -45,8 +49,6 @@ Click [here](Dataset.xlsx) for Datasets. Also refer to [data dictionary](Dataset
 3. Create measures in PowerBI to calculate hotel cancellation rate, total revenue, total loyal customers, etc for Data visualization.
 4. Create key performance indicators (KPIs) and other business calculations,
 5. Carry out DAX calculations for solving statistical measures and other mathematical formulas.
-
-![](Total_Revenue-DAX_Calculation.png)
 
 ![](Number_of_Agents-DAX.png)
    
