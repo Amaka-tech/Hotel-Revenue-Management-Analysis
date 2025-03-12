@@ -97,6 +97,9 @@ else if Date.Month([Arrival Date]) = 2
 and Date.Day([Arrival Date]) = 14 then "Valentine's Day"  
 else "Other")_
 
+To create a "Revenue" column: = ([Week Night Stays] * [AVG Daily Rate]) +   
+([Weekend Night Stays] * [AVG Daily Rate])
+
 Cancellation Rate *= DIVIDE([Total Cancellations], [Total Bookings], 0)*
 
 Hotel Companies *= CALCULATE(DISTINCTCOUNT('hotel_revenue_data(2018-2020)'[Company ID]),  
@@ -111,8 +114,7 @@ Total Cancellations *= COUNTROWS(FILTER('hotel_revenue_data(2018-2020)', 'hotel_
 
 Total Loyal Customers *= COUNTROWS(FILTER('hotel_revenue_data(2018-2020)', 'hotel_revenue_data(2018-2020)'[Repeated Guest Status] = "Yes"))*
 
-Total Revenue *= SUMX('hotel_revenue_data(2018-2020)', ('hotel_revenue_data(2018-2020)'[Week Night Stays] + 'hotel_revenue_data(2018-2020)'[Weekend Night Stays])) *  
- SUMX('hotel_revenue_data(2018-2020)', 'hotel_revenue_data(2018-2020)'[AVG Daily Rate])*
+Total Revenue *= SUM('hotel_revenue_data(2018-2020)'[Revenue])*
 
 Total Stay Length *= SUM('hotel_revenue_data(2018-2020)'[Week Night Stays]) + SUM('hotel_revenue_data(2018-2020)'[Weekend Night Stays])*
 
